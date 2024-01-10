@@ -1,0 +1,13 @@
+public final void loadListToTable() {
+        model = (SanphamTableModel)tbSanpham.getModel();
+        for (Sanpham sp : dssp) {
+            Image im = Toolkit.getDefaultToolkit().createImage(sp.getLinkHinhanh());
+            ImageIcon ic = new ImageIcon(im);
+            model.addRow(new Object[] {sp.getId(),sp.getTenSp(),ic});
+        }
+        
+        tbSanpham.setRowSelectionInterval(0, 0);
+        index = 0;
+        moveToRow(index);
+        moveToTopRow(index);
+    }
